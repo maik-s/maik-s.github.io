@@ -1,7 +1,7 @@
 # Hosting `bitwarden_rs` locally without world-wide internet access
 
 In this guide I'd like to share the steps, that I've conducted to host the docker image `bitwarden_rs` locally and such that the container is not able to access the internet.  
-The original idea for this endeavor are security considerations. First, I don't want to expose my bitwarden keestore to the public internet and second I don't want to fully trust the mentioned docker image. As a worst case scenario I think about that the docker image is kind of backdoored, such that all secret might be transfered to an attacker.
+The original idea for this endeavor are security considerations. First, I don't want to expose my bitwarden keystore to the public internet and second I don't want to fully trust the mentioned docker image. As a worst case scenario I think about that the docker image is kind of backdoored, such that all secrets might get transferred to an attacker.
 
 # Run the docker image
 
