@@ -131,10 +131,10 @@ Now we can add our iptables rule with
 sudo iptables -I DOCKER-USER -i br_onlylocal ! -d 192.168.0.1/24 -j DROP
 ```
 
-This rule is installed for our introduced networking interface and drops every packet, that has no destination from the IP range 192.168.0.1/24.
+This rule is installed for our introduced networking interface and drops every packet, that has no destination within the IP range `192.168.0.1/24`.
 
-One more note: As you can see in the above docker-compose.yml we also configure googles DNS server `8.8.8.8`. This is because be default all docker container use the same DNS server as the host. Hence, if the host uses `192.168.0.1` as its DNS server, the container does to. This would mean, the container could still resolve DNS request, as the firewall rule lets it through. But we don't want the container to do this (DNS tunneling). Hence, we setup `8.8.8.8` (or any other IP outside our firewall rule), such that those requests get dropped.
-
+One more note: As you can see in the above `docker-compose.yml` we also configured Google's DNS server `8.8.8.8`. 
+Not because we like Google, but because by default all docker container use the same DNS server as the host. Hence, if the host uses `192.168.0.1` as its DNS server, the container does it to. This would mean, the container could still resolve DNS requests, as the firewall rule lets it through. But we don't want the container to do this (DNS tunneling). Hence, setting up `8.8.8.8` (or any other IP outside our firewall rule), asure that DNS requests get dropped.
 
 That's all!. We now have an internet restricted self-hosted `bitwarden_rs` container.
 Just don't forget to renew your cert once in a while and make sure to backup your bitwarden data storage. You don't want to loose this one.
