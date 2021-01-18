@@ -1,2 +1,4 @@
-# maik-s.github.io
-My tips i consider as useful for others
+# My guides
+
+
+- [Hosting `bitwarden_rs` locally without world-wide internet access](/bitwarden_rs.md)
